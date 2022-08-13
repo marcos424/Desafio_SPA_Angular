@@ -1,0 +1,125 @@
+<style>
+    :hostdiv {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: borderbox;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+
+section {
+  left: 0;
+  right: 0;
+  height: 40px;
+  align-items: center;
+  background-color: lightslategrey
+  color: black;
+  border-radius: 10px;
+  padding-left: 20px;
+  margin-left: 1150px;
+  display:flex;
+}
+
+.example-label {
+  display:flex;
+  font-size: 30px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 200px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}
+
+.relacao {
+    position: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items:center;
+    background-color: grey;
+    color: white;
+    border-radius: 20px;
+    padding-left: 50px;
+  }
+
+.btn {
+    position: center;
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: lightblue;
+    color: black;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-left: 50px;
+  }
+
+  .list {
+    margin-left: 50px;
+    font-size: 150%;
+     }
+
+</style>
+
+<div class="relacao">
+    <h2>Controle de Frotas </h2>
+    <h2>-  &  -</h2>
+    <h3>Quantidade de Carros Disponíveis: {{numeroInicial}}</h3>
+  </div>
+
+
+<section>
+  <div class="example-label">Navegue:</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-mini-fab color="primary" aria-label="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+      <div class="example-button-container">
+        <button mat-mini-fab disabled aria-label="home">
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<button class="btn" (click)="exibirTabela()">Exibir Motoristas</button>
+
+<table class="list" *ngIf="exibeTabela">
+  <tr>
+    <th>Nome</th>
+    <th>Idade</th>
+    <th>Documento</th>
+  </tr>
+  <tr *ngFor="let motorista of listaMotoristas">
+    <td>{{motorista.nome}}</td>
+    <td>{{motorista.idade}}</td>
+    <td>{{motorista.documento}}</td>
+  </tr>
+</table>
